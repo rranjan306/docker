@@ -1,7 +1,12 @@
 
-# Base Image for Node
-FROM node:8.15.0-alpine
+# Base Image for Ubuntu
+FROM ubuntu
 
-WORKDIR /app
+RUN apt-get update
+RUN apt-get -y install apache2
 
-ADD . /app
+ADD . /var/www/server
+
+CMD apachectl -D FOREGROUND
+
+ENV MY_PHONE_NUMBER 8871832400
