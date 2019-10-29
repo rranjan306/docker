@@ -52,7 +52,7 @@ docker ps
 docker ps -a
 
 # To map container port to localhost port and also to run node file
-docker run -p container_port:localhost_port -it <image_id> node <file.js>
+docker run -p localhost_port:container_port -it <image_id> node <file.js>
 
 # Stop docker container
 docker stop <container_id>
