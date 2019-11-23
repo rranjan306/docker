@@ -11,6 +11,10 @@ apt-cache policy docker-ce
 sudo apt-get install -y docker-ce
 sudo systemctl status docker
 ```
+## Remove sudo permission from docker
+```
+sudo usermod -aG docker $USER
+```
 ## DockerFile Syntex
 ```bash
   FROM - Pull Base image file
