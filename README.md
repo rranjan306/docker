@@ -1,4 +1,4 @@
-# docker
+# Docker
 This repo will contain the basics of docker and docker engine.
 
 ## Installation
@@ -11,10 +11,12 @@ apt-cache policy docker-ce
 sudo apt-get install -y docker-ce
 sudo systemctl status docker
 ```
+
 ## Remove sudo permission from docker
-```
+```bash
 sudo usermod -aG docker $USER
 ```
+
 ## DockerFile Syntex
 ```bash
   FROM - Pull Base image file
@@ -35,8 +37,7 @@ sudo usermod -aG docker $USER
   #Example - ENV MY_PHONE_NUMBER 8871832456
 ```
 
-
-## Docker Commands
+## Docker Images
 ```bash
 # Pull the docker image
 docker pull <image_name:tag>
@@ -49,22 +50,45 @@ docker run <image_name:tag>
         or
 docker run <image_id>
 
+# Exit from docker
+^pq
+```
+
+### Docker Containers
+```bash
 # List down all running containers
 docker ps
 
 # List down all running containers even they are not running
 docker ps -a
 
-# To map container port to localhost port and also to run node file
-docker run -p localhost_port:container_port -it <image_id> node <file.js>
-
-# Stop docker container
+#To stop a docker container
 docker stop <container_id>
 
-# Exit from docker
-^pq
+#To stop all containers
+docker stop $(docker ps -a -q)
+
+#To run a docker container
+docker run <container_id>
+
+#Remove all stopped containers
+docker system prune
+
+# To map container port to localhost port and also to run node file
+docker run -p localhost_port:container_port -it <image_id> node <file.js>
 ```
 
+## Docker Volume
+```bash
+#create a volume
+docker volume create <name of volume>
+
+#List all volumes
+docker volume ls
+
+# Attaching a volume to container
+docker run -it --mount source = <name of volume>,target = <path to directory> -d <image-name>
+```
 
 ## Builds
 ```bash
@@ -78,15 +102,7 @@ docker build .
 docker build . -t <custom_repo_name:custom_tag_name>
 ```
 
-## Docker Volume
-```bash
-#create a volume
-docker volume create <name of volume>
-
-# Attaching a volume to container
-docker run -it --mount source = <name of volume>,target = <path to directory> -d <image-name>
-```
 ## Reference
-```
+```bash
 https://gist.github.com/bradtraversy/89fad226dc058a41b596d586022a9bd3
 ```

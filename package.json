@@ -1,0 +1,21 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "description": "This repo will contain the basics of docker and docker engine.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo test stage",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rranjan306/docker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rranjan306/docker/issues"
+  },
+  "homepage": "https://github.com/rranjan306/docker#readme"
+}
