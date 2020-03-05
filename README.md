@@ -86,8 +86,25 @@ docker volume create <name of volume>
 #List all volumes
 docker volume ls
 
+#Inspect a volume
+docker volume inspect <volume-name>
+
 # Attaching a volume to container
 docker run -it --mount source = <name of volume>,target = <path to directory> -d <image-name>
+```
+
+### How to open container bash termminal
+```bash
+docker exec -u 0 -it <container_name> bash
+```
+
+### Copy file
+```bash
+#From host machine to a container
+docker cp <file.txt> <container_name>:/<file.txt>
+
+# From a container to a host machine
+docker cp <container_name>:/<file.txt> <file.txt>
 ```
 
 ## Builds
@@ -105,4 +122,15 @@ docker build . -t <custom_repo_name:custom_tag_name>
 ## Reference
 ```bash
 https://gist.github.com/bradtraversy/89fad226dc058a41b596d586022a9bd3
+```
+
+### Push Docker Image to Github
+```bash
+# Tag the image
+  docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
+#Example
+  docker tag 7f9cf7d38af5 docker.pkg.github.com/rranjan306/moviesdetails/angular8:0.0.1
+
+#Push the image
+  docker push docker.pkg.github.com/rranjan306/moviesdetails/angular8:0.0.1
 ```
